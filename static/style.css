@@ -1,74 +1,194 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background-color: #f7f7f7;
-    color: #333;
-  }
-  
-  header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 1rem;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /* Degradê mais suave e mais claro de laranja */
+    background: linear-gradient(45deg, #ffb74d, #ff7043);
+    color: #fff;
+    overflow: auto; /* Corrige o problema da barra de rolagem */
+    height: 100vh;
+    position: relative;
+}
+
+header {
     text-align: center;
-  }
-  
-  main {
-    padding: 1rem;
-    max-width: 800px;
-    margin: auto;
-  }
-  
-  section {
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background-color: white;
+    padding: 30px;
+    color: #fff;
+    font-size: 2em;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+main {
+    padding: 20px;
+}
+
+.dicas-container {
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  form label {
+    padding: 20px;
+    margin-bottom: 30px;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.dicas-container h2 {
+    margin-top: 10px;
+    font-size: 1.5em;
+}
+
+.emoji-lampada {
+    font-size: 35px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+#registro-consumo-section {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#registro-consumo-form label {
+    font-size: 1.2em;
     display: block;
-    margin-bottom: 0.5rem;
-  }
-  
-  form input {
+    margin-bottom: 10px;
+}
+
+#registro-consumo-form input {
+    padding: 10px;
+    font-size: 1em;
     width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    background-color: #4CAF50;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#registro-consumo-form button {
+    background-color: #ff9800;
     color: white;
+    padding: 12px 20px;
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 1.2em;
     cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  table th, table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-  }
-  
-  table th {
-    background-color: #f4f4f4;
-  }
-  
-  p {
-    font-size: 1.1rem;
-  }
+    transition: background-color 0.3s ease;
+}
+
+#registro-consumo-form button:hover {
+    background-color: #e65100;
+}
+
+#limite-section, #analise-section {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+#analise-texto p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+#analise-detalhada {
+    font-size: 1.1em;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+#grafico-consumo, #grafico-comparacao {
+    max-width: 100%;
+    height: 300px;
+    /* Cores mais vivas nos gráficos */
+    border: 3px solid #fff; /* Borda branca para destacar mais */
+}
+
+.grafico-container {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #ff9800;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e65100;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.7); }
+    100% { box-shadow: 0 0 20px rgba(255, 255, 255, 1); }
+}
+
+/* Efeito de eletricidade com ramificação */
+@keyframes raioExplosivo {
+    0% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+    }
+    25% {
+        box-shadow: -30px 20px 35px rgba(255, 255, 255, 1), 20px -15px 60px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow: 50px -20px 70px rgba(255, 255, 255, 0.9), -20px 40px 90px rgba(255, 255, 255, 0.4);
+    }
+    75% {
+        box-shadow: -40px 30px 80px rgba(255, 255, 255, 0.7), 10px -25px 110px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+    }
+}
+
+/* Efeito de eletricidade nos cantos superiores, com ramificação de raio */
+#raio-esquerdo, #raio-direito {
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    animation: raioExplosivo 1.5s infinite alternate;
+}
+
+#raio-esquerdo {
+    left: 0;
+}
+
+#raio-direito {
+    right: 0;
+}
+
+#raio-seguindo {
+    position: absolute;
+    width: 150px;  /* Aumentando o alcance do raio */
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(0, 0, 0, 0) 80%); /* Efeito de brilho */
+    border-radius: 50%;
+    pointer-events: none;  /* Para não interferir com o clique no conteúdo */
+    box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.8); /* Brilho mais forte */
+    transform: scale(1);  /* A escala do efeito */
+    transition: transform 0.1s ease-out; /* Animação suave */
+}
+
+
   

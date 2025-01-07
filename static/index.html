@@ -5,47 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monitor de Consumo Energético</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+        <div id="raio-esquerdo"></div>
+        <div id="raio-direito"></div>
   <header>
-    <h1>Monitor de Consumo Energético</h1>
+    <h1>Monitor de Consumo</h1>
   </header>
-  
+
   <main>
-    <section id="form-section">
-      <h2>Inserir Dados de Consumo</h2>
-      <form id="consumo-form">
-        <label for="data">Data:</label>
-        <input type="date" id="data" required>
-        
-        <label for="consumo">Consumo (kWh):</label>
-        <input type="number" id="consumo" step="0.1" required>
-        
-        <button type="submit">Adicionar</button>
+    <section id="dicas-section">
+      <div class="dicas-container">
+        <span class="emoji-lampada">💡</span>
+        <h2>Dicas para Reduzir o Consumo de Energia</h2>
+        <ul>
+          <li>Desligue aparelhos quando não estiverem em uso.</li>
+          <li>Use lâmpadas de LED que consomem menos energia.</li>
+          <li>Prefira eletrodomésticos com classificação energética A++.</li>
+          <li>Ajuste a temperatura do seu ar-condicionado para não consumir energia desnecessária.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="registro-consumo-section">
+      <h2>Registro de Consumo Diário</h2>
+      <form id="registro-consumo-form">
+        <label for="consumo">Informe seu consumo diário (kWh):</label>
+        <input type="number" id="consumo" name="consumo" required placeholder="Ex: 10.5">
+        <button type="submit">Registrar Consumo</button>
       </form>
     </section>
 
-    <section id="dados-section">
-      <h2>Dados de Consumo</h2>
-      <table id="dados-tabela">
-        <thead>
-          <tr>
-            <th>Data</th>
-            <th>Consumo (kWh)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Os dados serão inseridos aqui -->
-        </tbody>
-      </table>
+    <section id="limite-section">
+      <h2>Limite de Consumo Definido</h2>
+      <p id="limite-definido">Nenhum limite definido ainda.</p>
+      <button id="alterar-limite">Alterar Limite</button>
     </section>
 
     <section id="analise-section">
-      <h2>Análise</h2>
-      <p>Média de Consumo: <span id="media-consumo">-</span> kWh</p>
-      <p>Pico de Consumo: <span id="pico-consumo">-</span> kWh</p>
+      <h2>Análise do Consumo</h2>
+      <div id="analise-texto">
+        <p>Registre seus consumos diários e acompanhe sua evolução. Baseado no seu limite de consumo, oferecemos dicas de como melhorar a eficiência energética e reduzir o impacto no seu bolso e no meio ambiente.</p>
+        <div id="analise-detalhada"></div>
+      </div>
+    </section>
+
+    <section id="graficos-section">
+      <h2>Gráficos</h2>
+      <div class="grafico-container">
+        <h3>Consumo Diário</h3>
+        <canvas id="grafico-consumo"></canvas>
+      </div>
+      <div class="grafico-container">
+        <h3>Comparação com Limite</h3>
+        <canvas id="grafico-comparacao"></canvas>
+      </div>
+      <div>
+        <button onclick="alterarTipoGrafico('pie')">Pizza</button>
+        <button onclick="alterarTipoGrafico('line')">Linha</button>
+        <button onclick="alterarTipoGrafico('bar')">Barra</button>
+      </div>
     </section>
   </main>
+
+  <footer>
+    <p>&copy; 2025 Monitor de Consumo Energético</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
